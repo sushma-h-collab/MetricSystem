@@ -1,0 +1,31 @@
+﻿@model MetricSystem.Models.Temperature
+<h2 class="mb-3">Convert Fahrenheit to Celsius</h2>
+
+<div asp-validation-summary="All" class="text-danger mb-3"></div>
+
+<form asp-controller="Home" asp-action="Index" method="post">
+    @Html.AntiForgeryToken()
+
+    <div class="mb-3 row">
+        <label asp-for="Fahrenheit" class="col-sm-3 col-form-label">Fahrenheit Value</label>
+        <div class="col-sm-9">
+            <input asp-for="Fahrenheit" type="text" class="form-control" />
+        </div>
+    </div>
+
+    <div class="mb-4 row">
+        <label asp-for="Celsius" class="col-sm-3 col-form-label">Celsius Value</label>
+        <div class="col-sm-9">
+            <input asp-for="Celsius" type="text" class="form-control" readonly />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="offset-sm-3 col-sm-9 d-flex gap-2">
+            <button type="submit" class="btn btn-primary">Convert</button>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">Clear</a>
+        </div>
+    </div>
+</form>
+
+@* DO NOT render ViewBag here *@
