@@ -1,0 +1,39 @@
+@model Temperature
+@{
+    ViewData["Title"] = "Fahrenheit Converter";
+}
+
+<h2 class="mb-4 text-center">Convert Fahrenheit to Celsius</h2>
+
+<!-- Validation summary (Bootstrap "alert-danger" style box) -->
+<div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+<form asp-action="Index" method="post" novalidate>
+    <div class="mb-3 row">
+        <label asp-for="Fahrenheit" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            <input asp-for="Fahrenheit" type="text" class="form-control" />
+            <!-- field-level validation -->
+            <span asp-validation-for="Fahrenheit" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <label asp-for="Celsius" class="col-sm-3 col-form-label"></label>
+        <div class="col-sm-9">
+            <input asp-for="Celsius" type="text" class="form-control" disabled />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="offset-sm-3 col-sm-9 d-flex gap-2">
+            <button type="submit" class="btn btn-primary">Convert</button>
+            <a asp-action="Index" class="btn btn-secondary">Clear</a>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <!-- Required validation scripts -->
+    <partial name="_ValidationScriptsPartial" />
+}

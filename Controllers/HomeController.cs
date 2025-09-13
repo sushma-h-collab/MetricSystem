@@ -19,8 +19,7 @@ namespace MetricSystem.Controllers
 
             model.Celsius = model.ConvertToCelsius();
 
-            // so the textbox shows the computed value instead of the empty posted value
-            ModelState.Remove(nameof(model.Celsius));
+
 
             // requirement: carry via ViewBag (do not render it in the view)
             ViewBag.Celsius = model.Celsius;
